@@ -22,7 +22,7 @@ const createCustomer = async (req, res) =>{
 
     if (password.length < 8 || password.length > 15) return res.status(400).send({status: false, message: "password length should be between 8 to 15"});
    
-    data.total
+    data.totalOrders=0
     data.discount=0;
 
     let savedData = await customerModel.create(data)
