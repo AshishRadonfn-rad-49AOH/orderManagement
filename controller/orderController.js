@@ -44,7 +44,6 @@ const createOrder = async (req, res) => {
 
       await customerModel.findByIdAndUpdate({_id: customerId},{$set:{category,totalOrders:totalOrders},discount:discount},{new:true});
 
-      data.discount=discount;
       let orderData = await orderModel.create(data)
       return res.status(201).send({status:true,message:"successfully order created",data: orderData})
   }
