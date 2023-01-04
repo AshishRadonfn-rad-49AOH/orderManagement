@@ -18,13 +18,13 @@ const authenticate = async function (req, res, next) {
       return res.status(400).send({ status: false, msg: "token must be present" });
     }
 
-    let decodedToken = jwt.verify(token, "radon");
-    console.log(decodedToken);
-    if (!decodedToken) {
-      return res.status(401).send({ status: false, msg: "token is invalid" });
-    }
-    req.customerId = decodedToken.customerId;
-    next();
+   jwt.verify(token, "radon", (err, customer) =>{
+      if(err){
+         return res.status(401).send({ status: false, msg: "token is invalid" });
+      }
+      req.customerId = customer.customerId;
+      next();
+    });
   }
   catch (error) {
     return res.status(500).send({ msg: " Server Error", error: error.message });

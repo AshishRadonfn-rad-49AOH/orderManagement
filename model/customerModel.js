@@ -26,6 +26,9 @@ const customerSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    totalPrice : {
+        type: Number
+    },
     totalOrders :{
         type:Number,
         trim: true

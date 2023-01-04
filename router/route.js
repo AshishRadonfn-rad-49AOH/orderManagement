@@ -7,6 +7,7 @@ const auth = require('../middleware/auth')
 router.post('/createCus', customerController.createCustomer)
 router.post('/login',customerController.login)
 
-router.post('/createOrder', auth.authenticate,orderController.createOrder)
+router.post('/createOrder', auth.authenticate, orderController.createOrder)
+router.get('/get', orderController.getOrder)
 
 module.exports = router
