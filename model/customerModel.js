@@ -23,18 +23,20 @@ const customerSchema = new mongoose.Schema({
         type: String,
         default: 'Regular',
         enum:['Regular','Gold','Platinum'],
-        required: true,
         trim: true
     },
     totalPrice : {
-        type: Number
+        type: Number,
+        default : 0
     },
     totalOrders :{
         type:Number,
+        default: 0,
         trim: true
     },
     discount:{ 
         type: Number,
+        default : 0,
         trim: true
     }
 

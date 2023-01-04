@@ -1,12 +1,11 @@
 const mongoose = require('mongoose')
-const ObjectId = mongoose.Schema.Types.ObjectId
 
-const objectId = mongoose.Schema.Types.ObjectId
+const ObjectId = mongoose.Schema.Types.ObjectId
 
 const orderSchema = new mongoose.Schema({
 
     customerId: { 
-        type: objectId, 
+        type: ObjectId, 
         required: true, 
         ref: 'customer' 
     },
@@ -17,9 +16,6 @@ const orderSchema = new mongoose.Schema({
     totalPrice: { 
         type: Number, 
         trim: true 
-    },
-    discount:{ 
-        type: Number
     }
 }, { timestamps: true })
 
